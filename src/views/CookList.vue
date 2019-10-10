@@ -43,7 +43,7 @@ export default {
     created(){
         this.classes_id = this.$route.params.id;
         this.$http.GetCookList(this.classes_id,this.currentPage).then((response)=>{
-            this.ItemList = response.data.data;
+            this.ItemList = response.data.itemList;
         })
     },
     methods:{

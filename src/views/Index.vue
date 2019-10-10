@@ -1,7 +1,7 @@
 <template>
   <div style="margin-top:5px">
     <van-swipe style="height: 200px;" :autoplay="3000" indicator-color="red">
-      <van-swipe-item v-for="(item,index) in carousel" :key="index">
+      <van-swipe-item v-for="(item,index) in Carousel" :key="index">
         <div class="swipe_box">
           <span>{{item.title}}</span>
         </div>
@@ -44,74 +44,17 @@
 export default {
     data(){
       return {
-        carousel:[
-          {
-            url:'',
-            title:'黑眼豆豆（汤种法）',
-            img:'https://pic.ecook.cn/web/263298602.jpg!wh882',
-          },
-          {
-            url:'',
-            title:'藜麦鸡胸沙拉',
-            img:'https://pic.ecook.cn/web/263299748.jpg!wh882',
-          },
-          {
-            url:'',
-            title:'花菇炖鸡',
-            img:'https://pic.ecook.cn/web/263299688.jpg!wh882',
-          },
-          {
-            url:'',
-            title:'花开富贵',
-            img:'https://pic.ecook.cn/web/263299862.jpg!wh882',
-          },
-        ],
-       QuoteCook:[
-         {
-           id:'2876',
-           title:'菠菜排包',
-           img:'http://pic.ecook.cn/web/262643251.jpg!s4'
-         },
-         {
-           id:'2877',
-           title:'全麦香葱花卷',
-           img:'http://pic.ecook.cn/web/263452206.jpg!s4'
-         },
-         {
-           id:'2892',
-           title:'虾仁蒸蛋',
-           img:'http://pic.ecook.cn/web/245400269.jpg!s4'
-         },
-         {
-           id:'2884',
-           title:'照烧鸡腿培根蛋炒饭',
-           img:'http://pic.ecook.cn/web/262596434.jpg!s4'
-         },
-         {
-           id:'2932',
-           title:'红豆沙汤圆',
-           img:'http://pic.ecook.cn/web/262860293.jpg!s4'
-         },
-         {
-           id:'2940',
-           title:'猪肉甜玉米馅抄手',
-           img:'http://pic.ecook.cn/web/263019096.jpg!s4'
-         },
-         {
-           id:'2945',
-           title:'彩椒炒牛肚头',
-           img:'http://pic.ecook.cn/web/263283649.jpg!s4'
-         },
-         {
-           id:'2949',
-           title:'红薯红枣粥',
-           img:'http://pic.ecook.cn/web/262482421.jpg!s4'
-         },
-
-       ] 
+        Carousel:[],
+		QuoteCook:[],
       }
       
-    }
+    },
+	beforeCreate() {
+		this.$axios.get('/api/index/carousel').then((response)=>{
+			this.Carousel = response.data.Carousel
+			this.QuoteCook = response.data.QuoteCook
+		})
+	}
 }
 </script>
 

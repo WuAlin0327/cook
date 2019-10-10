@@ -21,7 +21,7 @@ export default {
             memuList:[]
         }
     },
-    created(){
+    beforeCreate(){
         this.$http.GetCookBook().then((response)=>{
             this.memuList = response.data.data
         })

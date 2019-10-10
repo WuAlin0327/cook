@@ -2,7 +2,8 @@
     <div>
         <van-sticky>
             <van-tabs swipeable animated sticky v-model="active" >
-                <van-tab title="首页" name="index" to="/index"></van-tab>
+                <van-tab title="首页" name="index" to="/index">
+				</van-tab>
                 <van-tab title="菜谱大全" name="cookbook" to="/cookbook"></van-tab>
                 <van-tab title="每日推荐" name="promote" to="/promote"></van-tab>
             </van-tabs>

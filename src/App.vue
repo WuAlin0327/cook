@@ -30,7 +30,7 @@ export default {
             }
         }
     },
-    created(){
+    created(){	
       let name = this.$route.name
       if (name == 'login'){
               this.isLogin=true;

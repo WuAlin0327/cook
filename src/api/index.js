@@ -1,7 +1,7 @@
 import axios from 'axios'
 axios.defaults.withCredentials=true
 // axios.defaults.headers.get['Content-Type'] = 'application/x-www-fromurlencodeed';
-axios.defaults.baseURL = 'http://restful.l.onebound.cn';
+// axios.defaults.baseURL = 'http://restful.l.onebound.cn';
 const GetCookBook = ()=>{
     return axios.get('/cookbook').then();
 }
@@ -12,9 +12,13 @@ const GetCookList = (id,page)=>{
 const GetDetail = (id)=>{
     return axios.get('/cookdetail/'+id).then();
 }
+const GetPromote = ()=>{
+	return axios.get('/promote').then()
+}
 
 export default{
     GetCookBook,
     GetCookList,
-    GetDetail
+    GetDetail,
+	GetPromote
 }

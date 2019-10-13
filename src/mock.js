@@ -314,6 +314,8 @@ const CookList = function(){
 	return{
 		itemList,
 		sucess:true,
+		totalPgae:100,
+		currentPage:1,
 	}
 }
 

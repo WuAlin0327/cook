@@ -2,6 +2,7 @@
   <div>
        <div class="page">
         <van-pagination 
+		v-if="totalPage>0"
         v-model="currentPage" 
         :total-items="100" 
         :show-page-size="3" 
@@ -37,13 +38,15 @@ export default {
         return{
             classes_id:null,
             ItemList:[],
-            currentPage:1,
+			totalPage:0
         }
     },
     created(){
         this.classes_id = this.$route.params.id;
         this.$http.GetCookList(this.classes_id,this.currentPage).then((response)=>{
             this.ItemList = response.data.itemList;
+			this.totalPage = response.data.totalPgae;
+			this.currentPage = response.data.currentPage;
         })
     },
     methods:{

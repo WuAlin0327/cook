@@ -1,11 +1,13 @@
 <template>
     <div>
         <van-sticky>
-            <van-tabs swipeable animated sticky v-model="active" >
+            <van-tabs :swipeable="swipeable" animated sticky v-model="active" @change="changeTab" >
                 <van-tab title="首页" name="index" to="/index">
 				</van-tab>
-                <van-tab title="菜谱大全" name="cookbook" to="/cookbook"></van-tab>
-                <van-tab title="每日推荐" name="promote" to="/promote"></van-tab>
+                <van-tab title="菜谱大全" name="cookbook" to="/cookbook">
+				</van-tab>
+                <van-tab title="每日推荐" name="promote" to="/promote">
+				</van-tab>
             </van-tabs>
     </van-sticky>
     </div>
@@ -18,8 +20,10 @@ export default {
             active:'',
             tab_name:[
                 'index',
-                'cookbook'
-            ]
+                'cookbook',
+				'promote'
+            ],
+			swipeable:true,
         }
     },
     watch:{
@@ -34,7 +38,12 @@ export default {
                 this.active='cookbook'
             }
         }
-    }
+    },
+	methods:{
+		changeTab(){
+			this.$router.push(this.active)
+		}
+	}
 
 }
 </script>
